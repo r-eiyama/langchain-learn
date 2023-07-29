@@ -21,3 +21,7 @@ tasks:
     desc: volumeごと削除
     cmds:
      - docker compose down --rmi all --volumes --remove-orphans
+  reload:
+    desc: FastAPIをreload
+    cmds:
+     - docker compose exec api uvicorn main:app --reload
