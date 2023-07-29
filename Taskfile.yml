@@ -17,3 +17,7 @@ tasks:
     desc: ssh Container
     cmds:
       - docker compose exec api /bin/bash
+  downall:
+    desc: volumeごと削除
+    cmds:
+     - docker compose down --rmi all --volumes --remove-orphans
