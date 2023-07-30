@@ -1,6 +1,6 @@
 FROM python:3.11
 
-WORKDIR /app
+WORKDIR /api
 
 # 必要なシステムパッケージをインストール
 RUN apt-get update && apt-get install -y curl \
@@ -16,9 +16,9 @@ ENV PATH /root/.local/bin:$PATH
 RUN poetry config virtualenvs.create false
 
 # アプリケーションの依存関係をインストール
-COPY pyproject.toml poetry.lock /app/
+COPY pyproject.toml poetry.lock /api/
 RUN poetry install
 
-COPY . /app
+COPY . /api
 
-CMD ["sh", "-c", "set -e; cd /app/app && uvicorn main:app --reload --host 0.0.0.0 --port 8080"]
+CMD ["sh", "-c", "set -e; cd /api/app && uvicorn main:app --reload --host 0.0.0.0 --port 8080"]
