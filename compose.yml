@@ -18,11 +18,11 @@ services:
     container_name: "api"
     platform: linux/x86_64
     volumes:
-      - .:/app
-    build: .
+      - ./api:/app
+    build: ./api/
     ports:
       - "8080:8080"
     env_file:
-      - local.env
+      - api/local.env
     tty: true
 

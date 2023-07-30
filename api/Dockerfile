@@ -19,6 +19,6 @@ RUN poetry config virtualenvs.create false
 COPY pyproject.toml poetry.lock /app/
 RUN poetry install
 
-COPY /app /app/app
+COPY . /app
 
 CMD ["sh", "-c", "set -e; cd /app/app && uvicorn main:app --reload --host 0.0.0.0 --port 8080"]
