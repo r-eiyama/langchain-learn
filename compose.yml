@@ -1,10 +1,28 @@
 version: "3.8"
 
 services:
+  mysql:
+    container_name: "mysql"
+    platform: linux/x86_64
+    volumes:
+      - ./mysql/conf.d:/etc/mysql/conf.d
+    build: ./mysql/
+    ports:
+      - "3306:3306"
+    env_file:
+      - ./mysql/local.env
+    tty: true
   api:
+    depends_on:
+      - mysql
     container_name: "api"
+    platform: linux/x86_64
     volumes:
       - .:/app
     build: .
     ports:
       - "8080:8080"
+    env_file:
+      - local.env
+    tty: true
+

@@ -16,7 +16,7 @@ tasks:
   ssh:
     desc: ssh Container
     cmds:
-      - docker compose exec api /bin/bash
+      - docker compose exec mysql /bin/bash
   downall:
     desc: volumeごと削除
     cmds:
