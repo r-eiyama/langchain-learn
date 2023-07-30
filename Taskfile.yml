@@ -24,4 +24,4 @@ tasks:
   reload:
     desc: FastAPIをreload
     cmds:
-     - docker compose exec api uvicorn main:app --reload
+     - docker-compose exec api sh -c "cd /app/app && uvicorn main:app --reload"
