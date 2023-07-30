@@ -20,8 +20,12 @@ tasks:
   downall:
     desc: volumeごと削除
     cmds:
-     - docker compose down --rmi all --volumes --remove-orphans
+      - docker compose down --rmi all --volumes --remove-orphans
   reload:
     desc: FastAPIをreload
     cmds:
-     - docker-compose exec api sh -c "cd /app/app && uvicorn main:app --reload"
+      - docker-compose exec api sh -c "cd /app/app && uvicorn main:app --reload"
+  pytest:
+    desc: Testを実行する
+    cmds:
+      - docker-compose exec api pytest
