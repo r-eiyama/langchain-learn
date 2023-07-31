@@ -5,8 +5,8 @@ tasks:
   init:
     desc: 最初に実行する楽
     cmds:
-      - docker build -t eiyama-app-runner-sample-image .
-      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample-image
+      - docker build -t eiyama-app-runner-sample .
+      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample
   downall:
     desc: 全てを消しさる
     cmds:
@@ -16,11 +16,11 @@ tasks:
   build:
     desc: docker imageのbuild
     cmds:
-      - docker build -t eiyama-app-runner-sample-image .
+      - docker build -t eiyama-app-runner-sample .
   run:
     desc: run
     cmds:
-      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample-image
+      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample
   stop:
     cmds:
       - docker stop eiyama-app-runner-sample
@@ -29,7 +29,7 @@ tasks:
       - docker rm eiyama-app-runner-sample
   rmi:
     cmds:
-      - docker rmi eiyama-app-runner-sample-image
+      - docker rmi eiyama-app-runner-sample
   health:
     desc: local healthCheck
     cmds:
