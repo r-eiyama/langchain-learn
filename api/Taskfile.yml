@@ -7,6 +7,12 @@ tasks:
     cmds:
       - docker build -t eiyama-app-runner-sample-image .
       - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample-image
+  downall:
+    desc: 全てを消しさる
+    cmds:
+      - docker stop eiyama-app-runner-sample
+      - docker rm eiyama-app-runner-sample
+      - docker rmi eiyama-app-runner-sample
   build:
     desc: docker imageのbuild
     cmds:
@@ -23,7 +29,7 @@ tasks:
       - docker rm eiyama-app-runner-sample
   rmi:
     cmds:
-      - docker rmi eiyama-app-runner-sample
+      - docker rmi eiyama-app-runner-sample-image
   health:
     desc: local healthCheck
     cmds:
