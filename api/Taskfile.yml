@@ -1,0 +1,30 @@
+version: '3'
+
+# apiDockerFile単体で動かしたい時に使う
+tasks:
+  init:
+    desc: 最初に実行する楽
+    cmds:
+      - docker build -t eiyama-app-runner-sample .
+      - docker run -d --name fastapi -p 8080:8080 eiyama-app-runner-sample
+  build:
+    desc: docker imageのbuild
+    cmds:
+      - docker build -t eiyama-app-runner-sample .
+  run:
+    desc: run
+    cmds:
+      - docker run -d --name fastapi -p 8080:8080 eiyama-app-runner-sample
+  stop:
+    cmds:
+      - docker stop fastapi
+  rm:
+    cmds:
+      - docker rm fastapi
+  rmi:
+    cmds:
+      - docker rmi eiyama-app-runner-sample
+  health:
+    desc: healthCheck
+    cmds:
+      - curl http://localhost:8080

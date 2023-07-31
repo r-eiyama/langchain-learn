@@ -19,6 +19,8 @@ RUN poetry config virtualenvs.create false
 COPY pyproject.toml poetry.lock /api/
 RUN poetry install
 
+EXPOSE 8080
+
 COPY . /api
 
 CMD ["sh", "-c", "set -e; cd /api/app && uvicorn main:app --reload --host 0.0.0.0 --port 8080"]
