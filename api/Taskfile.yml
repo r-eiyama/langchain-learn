@@ -5,22 +5,22 @@ tasks:
   init:
     desc: 最初に実行する楽
     cmds:
-      - docker build -t eiyama-app-runner-sample .
-      - docker run -d --name fastapi -p 8080:8080 eiyama-app-runner-sample
+      - docker build -t eiyama-app-runner-sample-image .
+      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample-image
   build:
     desc: docker imageのbuild
     cmds:
-      - docker build -t eiyama-app-runner-sample .
+      - docker build -t eiyama-app-runner-sample-image .
   run:
     desc: run
     cmds:
-      - docker run -d --name fastapi -p 8080:8080 eiyama-app-runner-sample
+      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample-image
   stop:
     cmds:
-      - docker stop fastapi
+      - docker stop eiyama-app-runner-sample
   rm:
     cmds:
-      - docker rm fastapi
+      - docker rm eiyama-app-runner-sample
   rmi:
     cmds:
       - docker rmi eiyama-app-runner-sample
