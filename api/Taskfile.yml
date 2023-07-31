@@ -25,6 +25,6 @@ tasks:
     cmds:
       - docker rmi eiyama-app-runner-sample
   health:
-    desc: healthCheck
+    desc: local healthCheck
     cmds:
       - curl http://localhost:8080
