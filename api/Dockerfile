@@ -23,5 +23,7 @@ EXPOSE 8080
 
 COPY . /api
 
+WORKDIR /api/app
+
 # ここでワークディレクトリを変えれば良い
-CMD ["sh", "-c", "set -e; cd /api/app && uvicorn main:app --reload --host 0.0.0.0 --port 8080"]
+CMD ["uvicorn", "main:app", "--reload", "--host", "0.0.0.0", "--port", "8080"]
