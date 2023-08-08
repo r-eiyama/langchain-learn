@@ -7,7 +7,7 @@ app = FastAPI()
 
 @app.get("/")
 async def read_main():
-    return {"msg": "Hello World"}
+    return {"msg": "Hello OpenAPI"}
 
 
 @app.get("/items/{item_id}")
