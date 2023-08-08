@@ -1,12 +1,7 @@
 version: '3'
 
-# apiDockerFile単体で動かしたい時に使う
+# ECR+AppRunner用のコンテナを作る
 tasks:
-  init:
-    desc: 最初に実行する楽
-    cmds:
-      - docker build -t eiyama-app-runner-sample .
-      - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample
   downall:
     desc: 全てを消しさる
     cmds:
@@ -14,11 +9,11 @@ tasks:
       - docker rm eiyama-app-runner-sample
       - docker rmi eiyama-app-runner-sample
   build:
-    desc: docker imageのbuild
+    desc: ECRにpushするためのdocker imageのbuild
     cmds:
-      - docker build -t eiyama-app-runner-sample .
+      - docker build -t eiyama-app-runner-sample . --platform=linux/x86_64
   run:
-    desc: run
+    desc: 多分使わない
     cmds:
       - docker run -d --name eiyama-app-runner-sample -p 8080:8080 eiyama-app-runner-sample
   stop:
@@ -30,7 +25,3 @@ tasks:
   rmi:
     cmds:
       - docker rmi eiyama-app-runner-sample
-  health:
-    desc: local healthCheck
-    cmds:
-      - curl http://localhost:8080
