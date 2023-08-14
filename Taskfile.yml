@@ -24,7 +24,7 @@ tasks:
   reload:
     desc: FastAPIをreload
     cmds:
-      - docker-compose exec api sh -c "cd /app/api && uvicorn main:app --reload"
+      - docker-compose exec api uvicorn main:app --reload
   pytest:
     desc: Testを実行する
     cmds:

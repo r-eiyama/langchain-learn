@@ -18,7 +18,7 @@ services:
     container_name: "api"
     platform: linux/x86_64
     volumes:
-      - ./api:/app
+      - ./api/app:/api/app
     build: ./api/
     ports:
       - "8080:8080"
