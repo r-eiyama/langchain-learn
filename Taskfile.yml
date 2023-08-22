@@ -14,9 +14,13 @@ tasks:
     cmds:
       - docker compose build
   ssh:
-    desc: ssh Container
+    desc: ssh API Container
     cmds:
       - docker compose exec api /bin/bash
+  mysql:
+    desc: MySQLコンテナに入る mysql -u appuser -p でパスワード打つとログインできる
+    cmds:
+      - docker compose exec mysql /bin/bash
   downall:
     desc: volumeごと削除
     cmds:
